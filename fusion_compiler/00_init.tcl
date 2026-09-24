@@ -13,7 +13,12 @@ set TECH_FILE   "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech
 set LAYER_MAP   "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech/saed32nm_tf_itf_tluplus.map"
 set TLU_MAX     "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech/saed32nm_1p9m_Cmax.lv.tluplus"
 set TLU_MIN     "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech/saed32nm_1p9m_Cmin.lv.tluplus"
-set REF_LIBS    [list /path/to/saed32lvt.ndm]
+set REFERENCE_LIBRARY [list \
+  $REFLIB/saed32_hvt.ndm \
+  $REFLIB/saed32_lvt.ndm \
+  $REFLIB/saed32_rvt.ndm \
+  $REFLIB/saed32_sram_lp.ndm]
+  
 set NLIB        "./${DESIGN_NAME}.dlib"
 
 set MIN_ROUTE_LAYER "M2"
@@ -70,7 +75,7 @@ group_path -name REG2OUT -from [all_registers -clock_pins] -to [all_outputs]
 # Preview the recipe without changing the design. Use this before the first compile.
 # set_qor_strategy -stage synthesis -metric {timing total_power} -report_only
 
-redirect -file reports/init_check_design.rpt { check_design }
+redirect -file reports/init_check_design.rpt { report_references -nosplit }
 redirect -file reports/init_check_timing.rpt { check_timing }
 redirect -file reports/init_clocks.rpt { report_clocks }
 
