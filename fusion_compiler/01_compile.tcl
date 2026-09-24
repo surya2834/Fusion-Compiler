@@ -27,7 +27,7 @@
 #   and you will not hand-edit the floorplan first.
 
 set DESIGN_NAME "msrv32_top"
-set NLIB        "./nlib/${DESIGN_NAME}.nlib"
+set NLIB        "./${DESIGN_NAME}.dlib"
 
 file mkdir reports
 open_lib $NLIB
