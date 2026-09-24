@@ -14,7 +14,7 @@ set LAYER_MAP   "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech
 set TLU_MAX     "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech/saed32nm_1p9m_Cmax.lv.tluplus"
 set TLU_MIN     "/home1/BPPD09/DVNSurya/VLSI_PD/Project/router_pnr_flow/ref/tech/saed32nm_1p9m_Cmin.lv.tluplus"
 set REF_LIBS    [list /path/to/saed32lvt.ndm]
-set NLIB        "./nlib/${DESIGN_NAME}.nlib"
+set NLIB        "./${DESIGN_NAME}.dlib"
 
 set MIN_ROUTE_LAYER "M2"
 set MAX_ROUTE_LAYER "M6"
